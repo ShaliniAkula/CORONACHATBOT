@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="{{ url_for('static', filename='styles/home.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+</head>
+<body onload="onLoadScript()">
+    {% if userCount %}
+        <h1 hidden>Hello {{ userCount }}!</h1>
+    {% endif %}
+    <input hidden type="number" id="userCount" value={{ userCount }}>
+
+<div class="header">
+
+</div>
+
+<div class="topnav">
+  <p class="title">COVID 19 AIDBOT</center></p>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <p>About COVID19</p>
+      <div class="mainInfo1"><br>
+      </div>
+      <p>COVID-19 is the infectious disease caused by the most recently discovered coronavirus.
+        This new virus and disease were unknown before the outbreak began in Wuhan, China, in December 2019.
+        COVID-19 is now a pandemic affecting many countries globally.</p>
+    </div>
+    <div class="card">
+      <h2>COVID 19 Spread</h2>
+      <div class="mainInfo2" >
+      </div>
+      <p>People can catch COVID-19 if they breathe in these droplets from a person infected with the virus.
+        This is why it is important to stay at least 1 meter) away from others. These droplets can land on objects and surfaces around the person such as tables, doorknobs and handrails.  People can become infected by touching these objects or surfaces, then touching their eyes, nose or mouth.
+        This is why it is important to wash your hands regularly with soap and water or clean with alcohol-based hand rub.</p>
+       </div>
+        <div class="card">
+          <div class="lastCard"></div>
+       <p>Importance of your immune system in fighting COVID-19</p>
+      <p>Your immune system works 24/7, whether it’s offering you protection from the Coronavirus, a common cold or even pink eye
+         Drink warm water throughout the day.
+        Practice Meditation, Yogasana, and Pranayama.
+        Increase the intake of Turmeric, Cumin, Coriander and garlic.
+        Drink herbal tea or decoction of Holy basil, Cinnamon, Black pepper, Dry Ginger and Raisin.
+        Avoid sugar and replace it with jaggery if needed.
+        Apply Ghee (clarified butter), Sesame oil, or Coconut oil in both the nostrils to keep this keeps the nostrils clean.Inhale steam with Mint leaves and Caraway seeds.
+      </p>
+        </div>
+    </div>
+
+  <div class="rightcolumn">
+    <div class="cardrc">
+      <h2>GET HELP!</h2>
+      <div class="chatButton" style="height:100px;">
+      <input type="submit" class="startChat-btn" id = "letsChat" onclick="toChatbot()" value="Start Chat" name="ok"/>
+      </div>
+      <p>Introducing our AIDBOT for instant Solutions for all your Queries</p>
+    </div>
+
+    <div class="card">
+      <h3>Popular Posts</h3>
+      <div class="fakeimg">
+        <a class="ChartCard_base__1xw9Q ChartCard_new__2V4ZP"
+                              href="https://coronavirus.jhu.edu/data/new-cases">
+        <div class="ChartCard_content__3y6dt">
+        <h3> See If New cases are rising or declining as states Reopen </h3>
+        </div>
+        <div class="ChartCard_cta__1K_jy"><span> Click & Learn More</span></div>
+      </a>
+      </div>
+      <div class="fakeimg">
+        <a class="ChartCard_base__1xw9Q ChartCard_new__2V4ZP"
+           href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters?gclid=EAIaIQobChMIwPHy3tO76gIVSw4rCh1EhwmEEAAYASADEgIBo_D_BwE">
+        <div class="ChartCard_content__3y6dt">
+        <h3>Know more facts and Mythbusters</h3>
+        </div>
+        <div class="ChartCard_cta__1K_jy"><span> Click & Learn More</span></div>
+      </a>
+      </div>
+      <div class="fakeimg">
+        <a class="ChartCard_base__1xw9Q ChartCard_new__2V4ZP"
+           href="https://www.globalhealthnow.org/2020-02/coronavirus-expert-reality-check">
+        <div class="ChartCard_content__3y6dt">
+        <h3>Glance on some Reality Checks</h3>
+        </div>
+        <div class="ChartCard_cta__1K_jy"><span> Click & Learn More</span></div>
+      </a>
+      </div>
+    </div>
+    <div class="contactcard">
+      <h3>Contact Us <i class='fas fa-at' style='font-size:36px'></i><i class='fas fa-envelope' style='font-size:36px'></i></h3>
+      <p>Support.CovidAidbot@Gmail.com</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+<script>
+
+    function onLoadScript() {
+    console.log("In 111111111")
+        $("li").delay(1000).each(function(i) {
+            $(this).delay(400 * i).queue(function() {
+                $(this).addClass("show");
+            })
+        })
+    }
+
+        function toChatbot() {
+        console.log("------------START CHATBOT BUTTON CLICKED-----------")
+            var count = document.getElementById("userCount").value;
+            console.log("count is >>> "  +(count))
+            if((count)%2==0) {
+                    console.log("EVEN COUNTER - 2ND BOT " + count)
+                    location.replace("http://127.0.0.1:5001/CovidChatbot")
+            } else {
+                    console.log("ODD COUNTER - 1ST BOT " + count)
+                    location.href="/CovidChatbot";
+
+            }
+        }
+    </script>
+
+
+
+</body>
+</html>
